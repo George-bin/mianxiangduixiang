@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        var arr = [1, 2, 3];
+
+        var a = 12;     //变量：自由
+        arr.a = 5;      //属性：属于一个对象
+
+        function show() {    //函数：自由
+        	alert('a');
+        }
+
+        arr.fn = function() {   //方法：属于一个对象
+        	alert('a');
+        }
+	</script>
+</body>
+</html>

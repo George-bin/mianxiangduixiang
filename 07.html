@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+         function Person(name, sex) {   //构造函数
+         	//假想：系统内部工作流程
+         	//var this = new Object();
+         	
+        	this.name = name;
+	        this.sex = sex;
+
+	        //假想：系统内部工作流程
+	        //return this
+
+	               
+        }
+        Person.prototype.showName = function() {
+        	alert('我的名字叫：' + this.name);
+        }
+        Person.prototype.showSex = function() {
+        	alert('我是' + this.sex + '的');
+        }
+
+        var p1 = new Person('blue', '男');
+        var p2 = new Person('ming', '女');
+
+        // p1.showName();
+        // p2.showSex();
+        
+        alert(p1.showName == p2.showName);   //false
+
+	</script>
+</body>
+</html>

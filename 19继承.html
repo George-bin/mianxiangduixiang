@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        function Person(name, sex) {
+        	this.name = name;
+        	this.sex = sex;
+        }
+        Person.prototype.showName = function() {
+        	alert(this.name);
+        }
+        Person.prototype.showSex = function() {
+        	alert(this.sex);
+        }
+
+        function Worker(name, sex, job) {
+        	//1、调用父级的构造函数
+        	//this->new出来的Worker对象
+        	//调用父级的构造函数 -> 为了继承属性
+            Person.call(this, name, sex);
+
+            this.job = job;
+        }
+        //2、 通过原型继承父级的方法 -> 为了继承方法
+        //原型链 -> 继承
+        // Worker.prototype = Person.prototype;
+        //子类影响了父类 -> 引用类型
+        // alert(Person.prototype.showJob);
+        
+        //循环遍历
+        for(var i in Person.prototype) {
+        	Worker.prototype[i] = Person.prototype[i];
+        }
+
+        Worker.prototype.showJob = function() {
+        	alert(this.job);
+        }
+
+        // 不影响父类
+        // alert(Person.prototype.showJob);  //undefined
+
+        var oP = new Person('george', '男');
+        var oW = new Worker('ming', '男', 'WEB');
+        oP.showName();
+        oW.showJob();
+
+
+
+        
+        
+
+
+	</script>
+</body>
+</html>

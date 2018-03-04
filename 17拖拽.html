@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box" style="width: 100px; height: 100px; background: red; position: absolute;"></div>
+	<div id="box1" style="width: 100px; height: 100px; background: yellow; position: absolute; left: 300px;"></div>
+
+	<script>
+	    window.onload = function() {
+	    	new Drag('box');
+	    	new Drag('box1');
+
+	    }
+        
+        function Drag(id) {
+        	var _this = this;
+        	this.oBox = document.getElementById(id);
+        	this.x = 0;
+        	this.y = 0;
+
+            
+        	this.oBox.onmousedown = function() {
+        		_this.fnDown();
+        	};
+        }
+
+        // 面向对象
+        Drag.prototype.fnDown = function(event) {
+        	var event = event || window.event;
+        	var _this = this;
+            this.x = event.clientX - this.oBox.offsetLeft;
+            this.y = event.clientY - this.oBox.offsetTop;
+
+            document.onmousemove = function() {
+             	_this.fnMove();
+            };
+            document.onmouseup = function() {
+            	_this.fnUp();
+            };
+        };
+        Drag.prototype.fnMove = function(event) {
+        	var event = event || window.event;
+        	this.oBox.style.left = event.clientX - this.x + 'px';
+        	this.oBox.style.top = event.clientY - this.y + 'px';
+        };
+        Drag.prototype.fnUp= function() {
+        	document.onmousemove = null;
+            document.onmouseup = null;
+        };
+	</script>
+</body>
+</html>

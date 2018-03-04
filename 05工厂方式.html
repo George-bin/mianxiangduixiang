@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	    // 工厂方式构造对象
+        function Person(name, sex) {   //构造函数
+        	// 1、原料
+        	var obj = new Object();
+
+        	// 2、加工
+        	obj.name = name;
+	        obj.sex = sex;
+	        obj.showName = function() {
+	        	alert('我的名字叫：' + this.name);
+	        }
+	        obj.showSex = function() {
+	        	alert('我是' + this.sex + '的');
+	        }
+
+	        // 3、出厂
+	        return obj;    //返回一个对象
+
+	               
+        }
+
+        var p1 = Person('blue', '男');
+        var p2 = Person('ming', '女');
+
+        alert(p1.showName == p2.showName);
+        // p1.showName();
+        // p2.showSex();
+
+	</script>
+</body>
+</html>

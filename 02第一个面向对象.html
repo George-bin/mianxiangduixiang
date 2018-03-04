@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+        var arr = [1, 2];
+        
+        //this:当前方法属于谁
+        
+        arr.show = function() {
+        	alert(this.length);
+        };
+
+        arr.show();
+
+        function show() {
+        	alert(this);     //window对象
+        }
+        // 等价于：
+        window.show = function() {
+        	alert(this);
+        }
+        show();
+	</script>
+</body>
+</html>

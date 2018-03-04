@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box" style="width: 100px; height: 100px; background: red; position: absolute;"></div>
+
+	<script>
+	    var oBox = null;
+	    var x = 0,
+	        y = 0;
+        window.onload = function() {
+        	oBox = document.getElementById('box');
+
+
+        	oBox.onmousedown = fnDown;
+        }
+
+        // 面向对象
+        function fnDown(event) {
+        	// alert(1);
+        	var event = event || window.event;
+            x = event.clientX - oBox.offsetLeft;
+            y = event.clientY - oBox.offsetTop;
+
+            document.onmousemove = fnMove;
+            document.onmouseup = fnUp;
+        }
+        function fnMove(event) {
+        	var event = event || window.event;
+        	oBox.style.left = event.clientX - x + 'px';
+        	oBox.style.top = event.clientY - y + 'px';
+        }
+        function fnUp() {
+        	document.onmousemove = null;
+            document.onmouseup = null;
+        } 
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+	    // 等价于
+	    // 两个不同的对象
+        var a = new function() {
+        	alert('abc');
+        }
+        
+        var b = new function() {
+        	alert('abc');
+        }
+        alert(a == b);    //false
+	</script>
+</body>
+</html>

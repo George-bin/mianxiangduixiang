@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+        var obj = new Object();
+
+        obj.name = 'blue';
+        obj.sex = '男';
+        obj.showName = function() {
+        	alert('我的名字叫：' + this.name);
+        }
+        obj.showSex = function() {
+        	alert('我是' + this.sex + '的');
+        }
+
+        obj.showName();
+        obj.showSex();
+
+        var obj2 = new Object();
+
+        obj2.name = 'ming';
+        obj2.sex = '男';
+        obj2.showName = function() {
+        	alert('我的名字叫：' + this.name);
+        }
+        obj2.showSex = function() {
+        	alert('我是' + this.sex + '的');
+        }
+
+        obj2.showName();
+        obj2.showSex();
+	</script>
+</body>
+</html>
